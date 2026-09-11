@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/python:3.10-slim
+FROM public.ecr.aws/docker/library/python:3.10-slim-bookworm
 ENV FLASK_RUN_HOST=0.0.0.0
 
 WORKDIR /
@@ -13,7 +13,7 @@ RUN apt-get update && \
   libffi-dev \
   && pip install pipenv \
   && rm -rf /var/lib/apt/lists/*
-  
+
 RUN mkdir -p /var/www/app && mkdir /app
 
 COPY Pipfile* /app
